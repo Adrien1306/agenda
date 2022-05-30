@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Ajouter un rendez-vous";
+}
+@model Appointment
+
+<form asp-action="Add">
+    <div class="mb-3">
+        <label asp-for="DateHour" class="form-label"></label>
+        <input asp-for="DateHour" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label asp-for="IdCustomers" class="form-label"></label>
+        <input asp-for="IdCustomers" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label asp-for="IdBrokers" class="form-label"></label>
+        <input asp-for="IdBrokers" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label asp-for="Subject" class="form-label"></label>
+        <input asp-for="Subject" class="form-control">
+    </div>
+    <div class="text-center">
+        <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>

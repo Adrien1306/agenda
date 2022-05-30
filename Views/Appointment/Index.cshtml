@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Liste des rendez-vous";
+}
+
+@model IEnumerable<Appointment>
+
+<table class="table" style="width:100%">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Date</th>
+            <th scope="col">Client</th>
+            <th scope="col">Courtier</th>
+            <th scope="col">Sujet</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Appointment in Model)
+        {
+            <tr>
+                <td> @Appointment.Id</td>
+                <td> @Appointment.DateHour</td>
+                <td> @Appointment.IdCustomers</td>
+                <td> @Appointment.IdBrokers</td>
+                <td> @Appointment.Subject</td>
+               
+            </tr>
+        }
+    </tbody>
+</table>

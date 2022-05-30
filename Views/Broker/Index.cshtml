@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Liste des courtiers";
+}
+
+@model IEnumerable<Broker>
+
+<table class="table" style="width:100%">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Prénom</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Broker in Model)
+        {
+            <tr>
+                <td> @Broker.Id</td>
+                <td> @Broker.Lastname</td>
+                <td> @Broker.Firstname</td>
+                <td>
+                    <a asp-action="Profil" asp-route-id="@Broker.Id" class="btn btn-dark">Détail</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

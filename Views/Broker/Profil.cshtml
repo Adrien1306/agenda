@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Détail d'un courtier";
+}
+
+@model Broker
+
+<table class="table" style="width:100%">
+    <thead>
+        <tr>
+            <th scope="col">Nom</th>
+            <th scope="col">Prénom</th>
+            <th scope="col">Mail</th>
+            <th scope="col">Tel</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr>
+                <td>@Model.Lastname</td>
+                <td>@Model.Firstname</td>
+                <td>@Model.Mail</td>
+                <td>@Model.PhoneNumber</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-dark">Modifier</a>
+                </td>
+            </tr>
+    </tbody>
+</table>

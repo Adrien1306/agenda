@@ -10,11 +10,21 @@
     </div>
     <div class="mb-3">
         <label asp-for="IdCustomers" class="form-label"></label>
-        <input asp-for="IdCustomers" class="form-control">
+        <select asp-for="IdCustomers" class="form-control">
+            @foreach (Customer c in ViewBag.Customers)
+            {
+                <option value="@c.Id">@c.Lastname @c.Firstname</option>
+            }
+        </select>
     </div>
     <div class="mb-3">
         <label asp-for="IdBrokers" class="form-label"></label>
-        <input asp-for="IdBrokers" class="form-control">
+        <select asp-for="IdBrokers" class="form-control">
+            @foreach (Broker b in ViewBag.Brokers)
+            {
+                <option value="@b.Id">@b.Lastname @b.Firstname</option>
+            }
+        </select>
     </div>
     <div class="mb-3">
         <label asp-for="Subject" class="form-label"></label>

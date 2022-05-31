@@ -93,6 +93,7 @@ namespace agenda.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Delete(Customer obj)
         {
             _db.Customers.Remove(obj);

@@ -15,28 +15,19 @@ namespace agenda.Controllers
         //LIST
         public IActionResult Index()
         {
-            IEnumerable<Appointment> Appointments = _db.Appointments;
-            return View(Appointments);
-        }
-
-        public IActionResult Profil(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-            var Appointment = _db.Appointments.Find(id);
-            if (Appointment == null)
-            {
-                return NotFound();
-            }
-            return View(Appointment);
+            var appointment = _db.Appointments.ToList();
+           
+            return View(appointment);
         }
 
         //ADD
         [HttpGet]
         public IActionResult Add()
         {
+            IEnumerable<Customer> Customers = _db.Customers;
+            ViewBag.Customers = Customers.ToList();
+            IEnumerable<Broker> Brokers = _db.Brokers;
+            ViewBag.Brokers = Brokers.ToList();
             return View();
         }
 
@@ -46,8 +37,11 @@ namespace agenda.Controllers
         {
             _db.Appointments.Add(obj);
             _db.SaveChanges();
+            TempData["success"] = "le rendez vous a bien été ajouté";
             return RedirectToAction("Index");
         }
+
+        
 
         //EDIT
         [HttpGet]

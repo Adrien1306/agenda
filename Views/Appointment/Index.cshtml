@@ -2,7 +2,7 @@
     ViewData["Title"] = "Liste des rendez-vous";
 }
 
-@model IEnumerable<Appointment>
+@model  IEnumerable<agenda.Models.Appointment>
 
 <table class="table" style="width:100%">
     <thead>
@@ -15,14 +15,14 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var Appointment in Model)
+        @foreach (var appointment in Model)
         {
             <tr>
-                <td> @Appointment.Id</td>
-                <td> @Appointment.DateHour</td>
-                <td> @Appointment.IdCustomers</td>
-                <td> @Appointment.IdBrokers</td>
-                <td> @Appointment.Subject</td>
+                <td> @appointment.Id</td>
+                <td> @appointment.DateHour</td>
+                <td> @appointment.IdBrokersNavigation.Lastname @appointment.IdBrokersNavigation.Firstname</td>
+                <td> @appointment.IdCustomersNavigation.Lastname @appointment.IdCustomersNavigation.Firstname</td>
+                <td> @appointment.Subject</td>
                
             </tr>
         }
